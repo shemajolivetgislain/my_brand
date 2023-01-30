@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
@@ -12,13 +13,46 @@
     <title>Capstone Project</title>
 </head>
 <body>
-    <p>
-        <h1>Jolivet</h1>
-        Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam, feugiat commodo class euismod lacus semper vel, lectus viverra a senectus auctor netus taciti.
-         Neque placerat faucibus vitae pulvinar facilisi eros nisi justo, potenti tristique risus vehicula donec himenaeos primis volutpat, praesent ornare ultrices orci quisque nullam per.
-          Montes non proin egestas pulvinar cum magna consequat facilisi
-        , accumsan elementum lacinia inceptos scelerisque metus convallis vehicula turpis, parturient ultricies volutpat habitasse faucibus duis et.
-    </p>
+    <!-- header design section -->
+    <header>
+        <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
+        <ul class="navlist">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+        <div class="bx bx-menu" id="menu-icon" ></div>
+        <button type="button" class="hero-button">Login</button>
+    </header>
+    <!-- home design section -->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Hi,</h1>
+            <h1>I am Jolivet</h1>
+            <h1>Gislain</h1>
+            <p>FULL STACK DEVELOPER</p>
+            <button type="button" class="home-button">Visit My Works</button>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="img/me.png" >
+        </div>
+        <div class="about-text">
+            <h6>Who Am I ?</h6>
+            <h2>About <span>Me</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing
+                 elit curabitur scelerisque, tortor faucibus arcu tincidunt
+                  ante magna senectus pretium, dui porta nec montes vivamus
+                   volutpat fames nam. Hac iaculis condimentum cursus est eget
+                   lacus orci dapibus euismod, tincidunt rhoncus duis 
+                aenean ullamcorper class felis vivamus maecenas enim,</p>
+            <a href="#" class="home-button">Download cv</a>
+        </div>
+    </section>
     <script src="main.js" ></script>
 </body>
 </html>
