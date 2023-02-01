@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
-
     <title>Capstone Project</title>
 </head>
 <body>
-    <!-- header design section -->
+    <!-- header section -->
     <header>
         <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
         <ul class="navlist">
@@ -27,7 +26,7 @@
         <div class="bx bx-menu" id="menu-icon" ></div>
         <button type="button" class="hero-button">Login</button>
     </header>
-    <!-- home design section -->
+    <!-- home section  -->
     <section class="home" id="home">
         <div class="home-text">
             <h1>Hi,</h1>
@@ -37,6 +36,7 @@
             <button type="button" class="home-button">Visit My Works</button>
         </div>
     </section>
+    <!-- about section -->
     <section class="about" id="about">
         <div class="about-img">
             <img src="img/me.png" >
@@ -50,9 +50,135 @@
                    volutpat fames nam. Hac iaculis condimentum cursus est eget
                    lacus orci dapibus euismod, tincidunt rhoncus duis 
                 aenean ullamcorper class felis vivamus maecenas enim,</p>
-            <a href="#" class="home-button">Download cv</a>
+            <div class="about-text-experience">
+                    <div class="item1">
+                        <h1>02 +</h1>
+                        <p>Year Experience</p>
+                    </div>
+                    <div class="item2">
+                        <h1>05 +</h1>
+                        <p>Completed Project </p>
+                    </div>
+                </div>
+            <a href="#" class="about-button">Download cv</a>
         </div>
+        
     </section>
-    <script src="main.js" ></script>
+    <!-- skills section design -->
+    <section class="skills" id="skills">
+        <div class="headings">
+            <h6>What I can offer ?</h6>
+            <h2>My <span>Skills</span></h2>
+        </div>
+        <div class="skills-container">
+            <div class="skills-container-one">
+                <div class="skills-headings">
+                    <h1>{ } Frontend Developer </h1>
+                    <p>More than 3 years</p>
+                </div>
+                <div class="bars">
+                    <!-- box-1 -->
+                    <div class="bars-box">
+                        <h3>HTML</h3>
+                        <span>94%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar html-bar"></div>
+                    </div>
+                    <!-- box-2 -->
+                    <div class="bars-box">
+                        <h3>CSS</h3>
+                        <span>84%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar css-bar"></div>
+                    </div>
+                    <!-- box-3 -->
+                    <div class="bars-box">
+                        <h3>JAVASCRIPT</h3>
+                        <span>50%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar js-bar"></div>
+                    </div>
+                    <!-- box-4 -->
+                    <div class="bars-box">
+                        <h3>REACT</h3>
+                        <span>50%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar react-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- skills card two -->
+            <br>
+            <div class="skills-container-two">
+                <div class="skills-headings">
+                    <h1>{ } Backend Developer </h1>
+                    <p>More than 2 years</p>
+                </div>
+                <div class="bars">
+                    <!-- box-1 -->
+                    <div class="bars-box">
+                        <h3>PHP</h3>
+                        <span>64%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar php-bar"></div>
+                    </div>
+                    <!-- box-2 -->
+                    <div class="bars-box">
+                        <h3>DJANGO</h3>
+                        <span>74%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar django-bar"></div>
+                    </div>
+                    <!-- box-3 -->
+                    <div class="bars-box">
+                        <h3>Firebase</h3>
+                        <span>50%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar fire-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <!-- skills card two -->
+            <div class="skills-container-three">
+                <div class="skills-headings">
+                    <h1>{ } Design </h1>
+                    <p>More than 2 years</p>
+                </div>
+                <div class="bars">
+                    <!-- box-1 -->
+                    <div class="bars-box">
+                        <h3>PHOTOSHOP</h3>
+                        <span>84%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar photo-bar"></div>
+                    </div>
+                    <!-- box-2 -->
+                    <div class="bars-box">
+                        <h3>FIGMA</h3>
+                        <span>74%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar figma-bar"></div>
+                    </div>
+                    <!-- box-3 -->
+                    <div class="bars-box">
+                        <h3>ILLUSTRATOR</h3>
+                        <span>50%</span>
+                        <div class="light-bar"></div>
+                        <div class="percent-bar illustrator-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+          
+
+        </div>
+
+
+    </section>
+    <script src="main.js"></script>
+
+    
 </body>
 </html>
