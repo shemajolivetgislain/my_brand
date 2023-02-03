@@ -66,9 +66,7 @@ span{
 
 
 }
-.navlist a.active{
-    color: var(--bg-color);
-}
+
 
 #menu-icon{
     font-size: 35px;
@@ -134,9 +132,12 @@ span{
     transform: scale(0.9);
 }
 header.sticky{
-    background: var(--second-color);
+    background: var(--bg-color);
     border-bottom: 1px solid var(--text-color);
-    color: #4F4189;
+    color: var(--text-color);
+}
+header.sticky a{
+    color: var(--text-color);
 }
 
 /* about section */
@@ -315,14 +316,14 @@ header.sticky{
 
 /* portfolio section styling */
 #portfolio {
-    padding: 70px 16% 90px;
+    padding: 5px 16% 90px;
 }
 .portfolio-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px,auto));
     align-items: center;
     gap:2.5rem;
-    margin-top: 5rem;
+    margin-top:3rem;
 }
 .row{
     position: relative;
@@ -390,7 +391,7 @@ header.sticky{
 
 /* contact me section styling */
 #contact {
-    padding: 70px 16% 90px;
+    padding: 5px 16% 90px;
 }
 
 .contact{
@@ -487,10 +488,198 @@ header.sticky{
 
 /* footer section styling */
 .footer{
-    padding: 70px 16% 90px;
+    padding: 0px 16% 90px;
 }
 
 .footer-text p{
     color: var(--second-color);
     font-size: 14px;
+}
+
+/* clog section styling */
+.blog{
+    padding: 0px 16% 90px;
+}
+.card{
+    display: flex;
+    background: var(--bg-color);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.28)
+}
+.card-image{
+    height: 20rem;
+    overflow: hidden;
+
+}
+.card-image img{
+    width: 1000px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.card-content{
+    padding: 2rem;
+}
+.blog-details {
+    display: flex;
+    align-items: center;
+    color: var(--second-color);
+}
+.icon-text{
+    margin-right: 1rem;
+}
+.icon-text .icon {
+    color: var(--text-color);
+    margin-right: 0.5rem;
+}
+.blog-btn{
+    margin-top: 2rem;
+}
+.blog-button{
+    padding: 10px 10px;
+    display: inline-block;
+    background: var(--text-color);
+    border-radius: 8px;
+    color: var(--bg-color);
+
+}
+
+
+
+
+/* responsive design */
+@media (max-width: 1480px){
+    header{
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+    header.sticky{
+        padding: 10px 2.5px;
+        transition: .1s;
+    }
+    section{
+        padding: 110px 3% 60px;
+    }
+    .end{
+        padding: 15px 3%;
+    }
+}
+
+@media (max-width: 1100px){
+    :root{
+        --big-font:4rem;
+        --h2-font: 2.5rem;
+        --p-font: 1rem;
+        transition: .1s;
+    }
+    .home-text h3{
+        font-size: 2.5rem;
+    }
+    .home{
+        height: 87vh;
+    }
+}
+
+@media screen and (max-width: 920px){
+    .about {
+        grid-template-columns: 1fr;
+    }
+    .about-img{
+        text-align: center;
+        order: 2;
+    }
+    .about-img img{
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+   
+}
+@media screen and (max-width: 900px){
+    .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 35rem;
+        overflow: hidden;
+    }
+
+    .card-image{
+        height: 100px;
+        flex: 1;
+        display: block;
+    }
+    /* .card-image img{
+        width: 100px;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    } */
+    .card-content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 840px){
+    #menu-icon{
+        display: block;
+    }
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        transition: all .45s ease;
+    }
+    .navlist a{
+        display: block;
+        margin: 17px;
+        font-size: 18px;
+        transition: all .45s ease;
+        color: var(--text-color);
+    }
+    .navlist a:hover{
+        color: var(--second-color);
+    }
+    .navlist a.active{
+        color: var(--text-color);
+    }
+    .navlist .open{
+        top: 100%;
+    }
+
+    
+}
+
+@media screen and (max-width: 500px){
+    .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 35rem;
+        overflow: hidden;
+    }
+
+    .card-image{
+        height: auto;
+        flex: 1;
+    }
+    .card-content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
