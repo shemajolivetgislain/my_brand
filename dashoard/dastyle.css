@@ -157,6 +157,13 @@ span{
     padding: 30px 30px 0 30px;
     margin-top: 70px;
 }
+
+.i-description{
+    color: var(--second-color);
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0px 30px 0 30px;
+}
 .values{
     padding: 30px 30px 0 30px;
     display: flex;
@@ -330,4 +337,81 @@ tbody tr td{
     .board{
         margin: 30px 15px 30px 14px;
     }
+}
+
+
+/* Styling article page */
+
+.headers{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 0 30px;
+}
+
+.header-btn {
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding:  10px 20px;
+    border-radius: 4px;
+    margin: 70px 90px 0px 0;
+}
+
+/* login styling */
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30% 30px 30px;
+    gap: 2rem;
+}
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="file"],
+textarea, select {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.form-group {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--second-color);
+  }
+
+/* .form-container input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  } */
+
+.submit-btn{
+
+    padding: 14px 10px;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
 }
