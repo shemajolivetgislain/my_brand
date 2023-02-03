@@ -404,8 +404,8 @@ textarea, select {
   } */
 
 .submit-btn{
-
-    padding: 14px 10px;
+    width: 100%;
+    padding: 14px 100px;
     background-color: var(--text-color);
     color: white;
     font-size: 16px;

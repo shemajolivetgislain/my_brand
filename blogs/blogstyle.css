@@ -35,6 +35,7 @@ header{
     padding: 22px 15%;
     border-bottom: 1px solid transparent;
     transition: all .45s ease;
+    border-bottom: 1px solid var(--second-color);
 }
 .logo{
     color:var(--second-color);
@@ -246,6 +247,19 @@ input[type="submit"] {
     font-weight: bold;
   }
 
+  .submit-btn{
+    width: 100%;
+    padding: 14px 220px;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
 .login-text{
     color: var(--second-color);
 }
@@ -253,4 +267,90 @@ input[type="submit"] {
     color: var(--text-color);
     font-weight: bold;
 }
+
+
+#blog-detail {
+    padding: 110px 20% 110px;
+
+}
+
+#blog-detail p{
+    margin-bottom: 20px;
+    color: var(--third-color);
+    justify-content: center;
+}
+#blog-detail h1{
+    color: var(--third-color);
+}
+.blog-img{
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-img img{
+    width: 100%;
+    height: 600px;
+    object-position: center;
+    margin: 20px 30% 20px 0;
+}
+
+.blog-user {
+    display: flex;
+    gap: 2px;
+}
+
+.blog-user  h3{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--third-color);
+}
+.blog-user  p{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--third-color);
+}
+
+.blog-user .user-img img{
+    width: 65px;
+    height: 65px;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--text-color);
+}
+
+.user-name{
+    padding-left: 17px;
+}
+
+/* styling comment section */
+
+.form-group {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+textarea {
+    width: 50%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    margin-bottom: 5px;
+    resize: none;
+    border: 1px solid #000000;
+  }
+
+input[type="submit"] {
+    width: 20%;
+    padding: 14px;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
 
