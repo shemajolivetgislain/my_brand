@@ -128,6 +128,7 @@ span{
     letter-spacing: 1px;
     margin-top: 20px;
 }
+
 .home-button:hover{
     transform: scale(0.9);
 }
@@ -138,6 +139,9 @@ header.sticky{
 }
 header.sticky a{
     color: var(--text-color);
+}
+header.sticky .hero-button{
+    color: var(--bg-color);
 }
 
 /* about section */
@@ -633,7 +637,7 @@ header.sticky a{
     }
     .navlist{
         position: absolute;
-        top: 100%;
+        top: -1000px;
         right: 0;
         left: 0;
         display: flex;
@@ -655,7 +659,7 @@ header.sticky a{
     .navlist a.active{
         color: var(--text-color);
     }
-    .navlist .open{
+    .navlist.open{
         top: 100%;
     }
 

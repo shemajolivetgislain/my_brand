@@ -63,8 +63,6 @@ span{
 .navlist a:hover{
     color: var(--bg-color);
     background-color: var(--text-color);
-
-
 }
 
 
@@ -78,11 +76,11 @@ span{
 }
 .hero-button {
     border: none;
-    /* background: var(--second-color);
-    border: 1px solid var(--text-color); */
+    /* background: var(--text-color); */
+    border: 1px solid var(--text-color);
     padding: 12px 30px;
-    border-radius: 7px;
-    color: var(--second-color);
+    border-radius: 0px;
+    color: var(--bg-color);
     font-size: 16px;
     font-weight: bold;
     transition: .4s;
@@ -113,6 +111,17 @@ span{
     color: var(--text-color);
 }
 
+header.sticky{
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--text-color);
+    color: var(--text-color);
+}
+header.sticky a{
+    color: var(--text-color);
+}
+header.sticky .hero-button{
+    color: var(--text-color);
+}
 /* post filter styling */
 .post-filter{
     display: flex;
@@ -199,6 +208,7 @@ span{
     font-size: 14px;
 }
 
+/* login styling */
 
 .card-container{
     padding: 0 200px;
@@ -354,3 +364,55 @@ input[type="submit"] {
     font-weight: bold;
   }
 
+/* responsive design */
+@media (max-width: 1480px){
+    header{
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+    header.sticky{
+        padding: 10px 2.5px;
+        transition: .1s;
+    }
+    section{
+        padding: 110px 3% 60px;
+    }
+    .end{
+        padding: 15px 3%;
+    }
+}
+
+@media (max-width: 840px){
+    #menu-icon{
+        display: block;
+    }
+    .navlist{
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        transition: all .45s ease;
+    }
+    .navlist a{
+        display: block;
+        margin: 17px;
+        font-size: 18px;
+        transition: all .45s ease;
+        color: var(--text-color);
+    }
+    .navlist a:hover{
+        color: var(--second-color);
+    }
+    .navlist a.active{
+        color: var(--text-color);
+    }
+    .navlist.open{
+        top: 100%;
+    }
+
+    
+}
