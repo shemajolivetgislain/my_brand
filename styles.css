@@ -500,12 +500,14 @@ header.sticky .hero-button{
 
 .input-control.error input {
     border-color: #ff3860;
+    
 }
 
 .input-control .error {
     color: #ff3860;
     font-size: 13px;
     height: 13px;
+    margin-bottom: 10px;
 }
 
 /* footer section styling */
