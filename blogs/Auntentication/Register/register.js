@@ -44,7 +44,7 @@ const validateInputs = () => {
     } else {
         const pattern = /^[a-zA-Z]+$/;
     
-        if (!pattern.test(titleValue)) {
+        if (!pattern.test(usernameValue)) {
             setError(username, 'username should contain only characters');
         } else {
             setSuccess(username);

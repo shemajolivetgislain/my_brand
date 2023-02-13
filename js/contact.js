@@ -43,13 +43,26 @@ const validateInputs = () => {
     if(nameValue === '') {
         setError(names, 'name is required');
     } else {
-        setSuccess(names);
+        const pattern = /^[a-zA-Z]+$/;
+    
+        if (!pattern.test(nameValue)) {
+            setError(names, 'names should contain only characters');
+        } else {
+            setSuccess(names);
+        }
     }
+    
 
     if(subjectValue === '') {
         setError(subject, 'Subject is required');
     } else {
-        setSuccess(subject);
+        const pattern = /^[a-zA-Z]+$/;
+    
+        if (!pattern.test(subjectValue)) {
+            setError(subject, 'subject should contain only characters');
+        } else {
+            setSuccess(subject);
+        }
     }
 
     if(emailValue === '') {
