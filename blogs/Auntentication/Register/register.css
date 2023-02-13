@@ -117,8 +117,13 @@ span{
     flex-direction: column;
 }
 
+.input-control label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .input-control input {
-    border: 2px solid #f0f0f0;
+    border: 1px solid var(--text-color);
 	border-radius: 4px;
 	display: block;
 	font-size: 12px;
@@ -154,13 +159,14 @@ form .show-hide{
     color: #ff3860;
     font-size: 13px;
     height: 13px;
+    margin-bottom: 5px;
 }
 
 .login-text{
     margin-top: 20px;
     color: var(--second-color);
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 15px;
 }
 .login-text a{
     color: var(--text-color);
