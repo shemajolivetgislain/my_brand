@@ -95,7 +95,7 @@ span{
     position: relative;
     height: 80vh;
     width: 100%;
-    background-image: url(../img/header.jpg);
+    background-image: url(img/header.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
