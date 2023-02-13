@@ -44,7 +44,13 @@ const validateInputs = () => {
     if(titleValue === '') {
         setError(title, 'title is required');
     } else {
-        setSuccess(title);
+        const pattern = /^[a-zA-Z]+$/;
+    
+        if (!pattern.test(titleValue)) {
+            setError(title, 'Title should contain only characters');
+        } else {
+            setSuccess(title);
+        }
     }
 
     if(dateValue === '') {

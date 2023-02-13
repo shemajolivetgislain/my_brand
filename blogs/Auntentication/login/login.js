@@ -9,11 +9,8 @@ form.addEventListener('submit', e => {
 });
 
 const setError = (element, message) => {
-    console.log(element + "element check");
     const inputControl = element.parentElement;
-    console.log(inputControl);
     const errorDisplay = inputControl.querySelector('.error');
-    console.log(errorDisplay);
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
@@ -30,7 +27,6 @@ const setSuccess = element => {
 };
 
 
-
 const validateInputs = () => {
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
@@ -38,7 +34,13 @@ const validateInputs = () => {
     if(usernameValue === '') {
         setError(username, 'Username is required');
     } else {
-        setSuccess(username);
+        const pattern = /^[a-zA-Z]+$/;
+    
+        if (!pattern.test(titleValue)) {
+            setError(username, 'username should contain only characters');
+        } else {
+            setSuccess(username);
+        }
     }
 
 

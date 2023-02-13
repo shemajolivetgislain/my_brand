@@ -42,7 +42,13 @@ const validateInputs = () => {
     if(usernameValue === '') {
         setError(username, 'Username is required');
     } else {
-        setSuccess(username);
+        const pattern = /^[a-zA-Z]+$/;
+    
+        if (!pattern.test(titleValue)) {
+            setError(username, 'username should contain only characters');
+        } else {
+            setSuccess(username);
+        }
     }
 
     if(emailValue === '') {
