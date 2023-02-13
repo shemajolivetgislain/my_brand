@@ -211,7 +211,7 @@ header.sticky .hero-button{
 /* login styling */
 
 .card-container{
-    padding: 0 200px;
+    padding: 0 180px;
 }
 .login-form-header{
     padding-top: 40px;
@@ -220,7 +220,7 @@ header.sticky .hero-button{
     text-align: center;
 }
 .login-form{
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -238,7 +238,42 @@ header.sticky .hero-button{
     border: 1px solid var(--text-color);
     border-radius: 5px;
 }
-input[type="text"],
+
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+ 
+.form-control label{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.form-control input{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--text-color);
+}
+
+.form-control small{
+    position: absolute;
+    margin: 3px;
+    visibility: hidden;
+}
+
+.form-control button{
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 14px;
@@ -248,7 +283,7 @@ input[type="password"] {
   margin-bottom: 20px;
 }
 
-/* input[type="submit"] {
+input[type="submit"] {
     width: 100%;
     padding: 14px;
     background-color: var(--text-color);
@@ -260,7 +295,7 @@ input[type="password"] {
     font-weight: bold;
   } */
 
-  .submit-btn{
+  /* .submit-btn{
     width: 100%;
     padding: 14px 220px;
     background-color: var(--text-color);
@@ -271,6 +306,20 @@ input[type="password"] {
     cursor: pointer;
     font-weight: bold;
     text-align: center;
+} */
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
 }
 
 .login-text{

@@ -22,7 +22,7 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="./blogs/blogs.html">Blogs</a></li>
             <li><a href="#contact">Contact Me</a></li>
-            <li><a href="./blogs/login.html" class="hero-button">Login</a></li>
+            <li><a href="./blogs/Auntentication/login/login.html" class="hero-button">Login</a></li>
         </ul>
         
         <!-- <button type="button" class="hero-button">Login</button> -->
@@ -280,11 +280,23 @@
             </div>
         </div>
         <div class="contact-form">
-            <form action="">
-                <input type="name" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email Address" required>
-                <input type="name" placeholder="Subject" required>
-                <textarea name="" id="" cols="30" rows="10" placeholder="How Can I help You" required></textarea>
+            <form action="#" id="form">
+                <div class="input-control">
+                    <input type="name" id="name" placeholder="Your Name" >
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="email" id="email" placeholder="Your Email Address" >
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="name" id="subject" placeholder="Subject">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <textarea name="" id="body" cols="30" rows="10" placeholder="How Can I help You" ></textarea>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Send Message" class="submit">
             </form>
         </div>

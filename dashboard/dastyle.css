@@ -391,7 +391,7 @@ textarea, select {
     color: var(--second-color);
   }
 
-/* .form-container input[type="submit"] {
+.form-container input[type="submit"] {
     width: 100%;
     padding: 14px;
     background-color: var(--text-color);
@@ -401,7 +401,7 @@ textarea, select {
     border: none;
     cursor: pointer;
     font-weight: bold;
-  } */
+  } 
 
 .submit-btn{
     width: 100%;
@@ -414,4 +414,22 @@ textarea, select {
     cursor: pointer;
     font-weight: bold;
     text-align: center;
+}
+
+.form-group input:focus {
+    outline: 0;
+}
+
+.form-group.success input {
+    border-color: #09c372;
+}
+
+.form-group.error input {
+    border-color: #ff3860;
+}
+
+.form-group .error {
+    color: #ff3860;
+    font-size: 13px;
+    height: 13px;
 }
