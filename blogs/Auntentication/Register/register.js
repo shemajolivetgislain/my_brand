@@ -1,8 +1,9 @@
 const form = document.getElementById('form');
 const username = document.getElementById('username');
-// const email = document.getElementById('email');
+const email = document.getElementById('email');
 const password = document.getElementById('password');
-// const password2 = document.getElementById('password2');
+const password2 = document.getElementById('password2');
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -76,3 +77,18 @@ const validateInputs = () => {
     }
 
 };
+
+
+const eyeIcons = document.getElementsByClassName("show-hide");
+
+[...eyeIcons].forEach((eyeIcon) => {
+    eyeIcon.addEventListener("click", () =>{
+        const pInput = eyeIcon.parentElement.querySelector("input");
+        if(pInput.type === "password"){
+            eyeIcon.classList.replace("bx-hide", "bx-show");
+            return (pInput.type = "text");
+        }
+        eyeIcon.classList.replace("bx-show", "bx-hide");
+        return (pInput.type = "password");    
+    });
+});
