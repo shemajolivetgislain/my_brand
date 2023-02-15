@@ -1,6 +1,7 @@
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
+const login = document.getElementById('login');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -65,3 +66,31 @@ const eyeIcons = document.getElementsByClassName("show-hide");
         return (pInput.type = "password");    
     });
 });
+
+
+
+users = JSON.parse(localStorage.getItem('users')) || [];
+
+function signIn() {
+    validateInputs();
+
+    const inputControls = form.querySelectorAll('.input-control');
+    const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
+  
+    if (hasError) {
+      return;
+    }
+  // check if user exists
+  const targetUser = users.find(user => user.username == username.value);
+  if(targetUser && targetUser.password == password.value) {
+    localStorage.setItem('currentUser', JSON.stringify(targetUser))
+    window.location.href = "../../../dashboard/home.html";
+  } else if(targetUser && targetUser.password != password.value) {
+    alert('wrong password');
+  } else {
+    // user doesn't exist
+    document.getElementById("error-display").innerText = "Username not found. Please sign up.";
+  }
+}
+
+login.onclick = signIn;

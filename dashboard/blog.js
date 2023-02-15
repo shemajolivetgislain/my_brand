@@ -4,6 +4,7 @@ const date = document.getElementById('date');
 const body = document.getElementById('body');
 const category = document.getElementById('category');
 const statuse = document.getElementById('statuse');
+const addBlog = document.getElementById('addBlog');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -68,9 +69,7 @@ const validateInputs = () => {
     
         if (fileType !== 'image/jpeg' && fileType !== 'image/png' && fileType !== 'image/jpg') {
             setError(picture, 'File type should be jpeg, png, or jpg');
-        } else if (fileSize > 100) {
-            setError( picture, 'File size should be less than 40 MB');
-        } else {
+        }  else {
             setSuccess( picture);
         }
     }
@@ -93,3 +92,56 @@ const validateInputs = () => {
     }
 
 };
+
+
+
+// adding blog using local storage
+// 
+
+blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+function saveBlog() {
+  let blog = {};
+  blog.title = title.value
+  blog.date = date.value
+  blog.body= body.value
+  blog.category = category.value
+  blog.statuse = statuse.value
+  blogs.push(blog);
+  const stringBlogs = JSON.stringify(blogs);
+  localStorage.setItem('blogs', stringBlogs);
+    // Redirect to login page after saving blog
+   window.location.replace("article.html");
+}
+function displayBlogs() {
+    const blogsTable = document.querySelector('.board tbody');
+    blogsTable.innerHTML = '';
+    blogs.forEach((blog, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="picture">
+          <img src="${blog.cover}" alt="">
+        </td>
+        <td class="blog-title">
+          <p>${blog.title}</p> 
+        </td>
+        <td class="author">
+          <p>${blog.author}</p>
+        </td>
+        <td class="date">
+          <p>${blog.date}</p>
+        </td>
+        <td class="status">
+          <p>${blog.status}</p>
+        </td>
+        <td class="action">
+          <a href="edit.html"><i class='bx bxs-edit'></i></a> 
+          <a href=""><i class='bx bxs-trash'></i></a> 
+        </td>
+      `;
+      blogsTable.appendChild(tr);
+    });
+  }
+  
+
+addBlog.onclick = saveBlog;

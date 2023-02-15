@@ -164,6 +164,14 @@ span{
     height: 13px;
     margin-bottom: 5px;
 }
+#error-display {
+    margin-top: 5px;
+    color: var(--likes-comment);
+    font-size: 14px;
+    font-weight: 600;
+    height: 13px;
+    margin-bottom: 5px;
+}
 
 .login-text{
     margin-top: 20px;

@@ -3,7 +3,9 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
-
+const role = document.getElementById('role');
+// signup button
+const signup = document.getElementById('signup');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -62,7 +64,7 @@ const validateInputs = () => {
 
     if(passwordValue === '') {
         setError(password, 'Password is required');
-    } else if (passwordValue.length < 8 ) {
+    } else if (passwordValue.length < 4 ) {
         setError(password, 'Password must be at least 8 character.')
     } else {
         setSuccess(password);
@@ -92,3 +94,39 @@ const eyeIcons = document.getElementsByClassName("show-hide");
         return (pInput.type = "password");    
     });
 });
+
+// 
+
+users = JSON.parse(localStorage.getItem('users')) || [];
+
+function saveUser() {
+    validateInputs();
+
+    const inputControls = form.querySelectorAll('.input-control');
+    const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
+  
+    if (hasError) {
+      return;
+    }
+
+
+  let user = {};
+  user.username = username.value
+  user.email = email.value
+  user.password = password.value
+  user.confirmPassword = password2.value
+  user.role = "user"
+  users.push(user);
+  const stringUsers = JSON.stringify(users);
+  localStorage.setItem('users', stringUsers);
+    // Redirect to login page after saving user
+   window.location.replace("../login/login.html");
+}
+
+// function displayUsers() {
+//   users.forEach((user, index) => {
+//     listUsers.innerHTML += `<li>user number ${index} is ${user.firstName} ${user.lastName}</li>`
+//   })
+// }
+
+signup.onclick = saveUser;
