@@ -6,6 +6,8 @@ const category = document.getElementById('category');
 const statuse = document.getElementById('statuse');
 const addBlog = document.getElementById('addBlog');
 
+
+
 form.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -45,7 +47,7 @@ const validateInputs = () => {
     if(titleValue === '') {
         setError(title, 'title is required');
     } else {
-        const pattern = /^[a-zA-Z]+$/;
+        const pattern = /^[a-zA-Z]+(\s[a-zA-Z]+)*$/;
     
         if (!pattern.test(titleValue)) {
             setError(title, 'Title should contain only characters');
@@ -101,6 +103,16 @@ const validateInputs = () => {
 blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
 function saveBlog() {
+
+    validateInputs();
+
+    const inputControls = form.querySelectorAll('.form-group');
+    const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
+  
+    if (hasError) {
+      return;
+    }
+
   let blog = {};
   blog.title = title.value
   blog.date = date.value
@@ -113,35 +125,43 @@ function saveBlog() {
     // Redirect to login page after saving blog
    window.location.replace("article.html");
 }
-function displayBlogs() {
-    const blogsTable = document.querySelector('.board tbody');
-    blogsTable.innerHTML = '';
-    blogs.forEach((blog, index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td class="picture">
-          <img src="${blog.cover}" alt="">
-        </td>
-        <td class="blog-title">
-          <p>${blog.title}</p> 
-        </td>
-        <td class="author">
-          <p>${blog.author}</p>
-        </td>
-        <td class="date">
-          <p>${blog.date}</p>
-        </td>
-        <td class="status">
-          <p>${blog.status}</p>
-        </td>
-        <td class="action">
-          <a href="edit.html"><i class='bx bxs-edit'></i></a> 
-          <a href=""><i class='bx bxs-trash'></i></a> 
-        </td>
-      `;
-      blogsTable.appendChild(tr);
-    });
-  }
+
+// function displayBlogs() {
+  
+//     // retrieve the form data from local storage
+//     const blogDataJson = localStorage.getItem('blogs');
+
+//     // parse the JSON string to an object
+//     const blogData = JSON.parse(blogDataJson);
+
+//     const blogsTable = document.querySelector('.board tbody');
+//     blogsTable.innerHTML = '';
+//     blogs.forEach((blog, index) => {
+//       const tr = document.createElement('tr');
+//       tr.innerHTML = `
+//         <td class="picture">
+//           <img src="${blogData.cover}" alt="">
+//         </td>
+//         <td class="blog-title">
+//           <p>${blogData.title}</p> 
+//         </td>
+//         <td class="author">
+//           <p>${blogData.author}</p>
+//         </td>
+//         <td class="date">
+//           <p>${blogData.date}</p>
+//         </td>
+//         <td class="status">
+//           <p>${blogData.status}</p>
+//         </td>
+//         <td class="action">
+//           <a href="edit.html"><i class='bx bxs-edit'></i></a> 
+//           <a href=""><i class='bx bxs-trash'></i></a> 
+//         </td>
+//       `;
+//       blogsTable.appendChild(tr);
+//     });
+//   }
   
 
 addBlog.onclick = saveBlog;
