@@ -1,5 +1,12 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const currentlogin = document.getElementById('currentLogin');
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  currentlogin.innerHTML = `${currentUser.username}`;
+});
+
 // get blogs from local storage or initialize an empty array
 const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+const user = JSON.parse(localStorage.getItem('blogs')) || [];
 
 // display blogs in the table
 function displayBlogs() {
@@ -52,3 +59,5 @@ function deleteBlog(index) {
   // save the updated list of blogs to local storage
   localStorage.setItem('blogs', JSON.stringify(blogs));
 }
+
+
