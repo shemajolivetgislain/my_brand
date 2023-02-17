@@ -7,8 +7,8 @@ function updateArticle(id){
     articleItem = JSON.parse(localStorage.getItem('blogs')) ?? []
 
     articleItem.forEach(function (value){
-        if(value.id == id){
-            document.getElementById('id').value = value.id,
+        if(value.index == index){
+            document.getElementById('index').value = value.index,
             document.getElementById('title').value = value.title,
             document.getElementById('date').value = value.date,
             document.getElementById('body').value = value.body,
