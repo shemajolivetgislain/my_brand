@@ -2,6 +2,7 @@ const form = document.getElementById('form');
 const title = document.getElementById('title');
 const date = document.getElementById('date');
 const body = document.getElementById('body');
+const picture = document.getElementById('picture');
 const category = document.getElementById('category');
 const statuse = document.getElementById('statuse');
 const addBlog = document.getElementById('addBlog');
@@ -94,16 +95,21 @@ const validateInputs = () => {
     }
 
 };
+ 
+let renderImage;
+document.querySelector("#picture").addEventListener("change", function(){
+    const reader = new FileReader();
+    reader.addEventListener('load', () =>{
+        localStorage.setItem("recent-image", reader.result);
+    });
 
-
-
-// adding blog using local storage
-// 
+    reader.readAsDataURL(this.files[0]);
+});
 
 blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
 function saveBlog() {
-
+    renderImage = localStorage.getItem('recent-image');
     validateInputs();
 
     const inputControls = form.querySelectorAll('.form-group');
@@ -114,6 +120,7 @@ function saveBlog() {
     }
 
   let blog = {};
+  blog.picture = renderImage
   blog.title = title.value
   blog.date = date.value
   blog.body= body.value
@@ -126,42 +133,6 @@ function saveBlog() {
    window.location.replace("article.html");
 }
 
-// function displayBlogs() {
-  
-//     // retrieve the form data from local storage
-//     const blogDataJson = localStorage.getItem('blogs');
 
-//     // parse the JSON string to an object
-//     const blogData = JSON.parse(blogDataJson);
-
-//     const blogsTable = document.querySelector('.board tbody');
-//     blogsTable.innerHTML = '';
-//     blogs.forEach((blog, index) => {
-//       const tr = document.createElement('tr');
-//       tr.innerHTML = `
-//         <td class="picture">
-//           <img src="${blogData.cover}" alt="">
-//         </td>
-//         <td class="blog-title">
-//           <p>${blogData.title}</p> 
-//         </td>
-//         <td class="author">
-//           <p>${blogData.author}</p>
-//         </td>
-//         <td class="date">
-//           <p>${blogData.date}</p>
-//         </td>
-//         <td class="status">
-//           <p>${blogData.status}</p>
-//         </td>
-//         <td class="action">
-//           <a href="edit.html"><i class='bx bxs-edit'></i></a> 
-//           <a href=""><i class='bx bxs-trash'></i></a> 
-//         </td>
-//       `;
-//       blogsTable.appendChild(tr);
-//     });
-//   }
-  
 
 addBlog.onclick = saveBlog;

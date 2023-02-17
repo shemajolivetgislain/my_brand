@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <title>Capstone Project</title>
+
 </head>
 <body>
     <section class="menu" id="menu">
@@ -40,7 +41,7 @@
             <div class="profile">
                 <img src="../img/profile.jpg" alt="">
                 <div class="name">
-                    <h3>John Doe</h3>
+                    <h3 id="currentLogin"></h3>
                 </div>
            </div>
         </div>
@@ -51,33 +52,47 @@
                 Edit blog here
             </p>
             <div class="form-container">
-                <form action="" class="form-group">
+                <form action="#"  id="editForm">
                     <div class="form-group">
                         <label for="title">Title:</label>
-                        <input type="text" id="title" placeholder="Title" >
+                        <input type="text" id="title" name="title" placeholder="Title" >
+                        <div class="error"></div>
                     </div>
                     <div class="form-group">
                         <label for="author">Date:</label>
-                        <input type="date" id="date" placeholder="Date">
+                        <input type="date" name="date" id="date" placeholder="Date">
+                        <div class="error"></div>
                     </div>
                     <div class="form-group">
                         <label for="author">Picture:</label>
-                        <input type="file" id="date" placeholder="upload image">
+                        <input type="file" id="picture" placeholder="upload image">
+                        <div class="error"></div>
                     </div>
                     <div class="form-group">
                         <label for="author">Body:</label>
-                        <textarea >Enter your articles Body</textarea>
+                        <textarea id="body" name="body">Enter your articles Body</textarea>
+                        <div class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select name="action" id="category">
+                            <option value="Published">None</option>
+                            <option value="Published">Tech</option>
+                            <option value="Not published">web</option>
+                          </select> 
+                        <div class="error"></div> 
                     </div>
                     <div class="form-group">
                         <label for="author">Status:</label>
-                        <select name="action" id="status">
+                        <select name="action" id="statuse">
                             <option value="Published">None</option>
                             <option value="Published">Published</option>
                             <option value="Not published">Not published</option>
-                          </select>  
+                          </select> 
+                        <div class="error"></div> 
                     </div>
-                  <!-- <input type="submit" value="Save"> -->
-                  <a href="article.html" class="submit-btn"> Save</a>
+                  <input type="submit" value="Save" id="addBlog">
+                  <!-- <a href="article.html" class="submit-btn"> Save</a> -->
                 </form>
             </div>
        
@@ -88,5 +103,6 @@
             $('#menu').toggleClass('active');
         });
     </script>
+    <script src="js/profile.js"></script>
 </body>
 </html>
