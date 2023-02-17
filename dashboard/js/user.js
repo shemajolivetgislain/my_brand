@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
           <td class="author">
             <p>${user.role}</p>
           </td>
+          <td class="action">
+          <a href="edituser.html"><i class='bx bxs-edit'></i></a>
+          <a href="#" onclick="deleteBlog(${index})"><i class='bx bxs-trash'></i></a>
+        </td>
         `;
         blogsTable.appendChild(tr);
       });
