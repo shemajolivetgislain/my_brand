@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     } else {
       // display a message or placeholder content if there are no blogs
-      blogsTable.innerHTML = '<tr><td colspan="6">No users found.</td></tr>';
+      blogsTable.innerHTML = '<tr><td colspan="6">No Queries found.</td></tr>';
     }
   }
   
