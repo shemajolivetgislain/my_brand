@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <title>Capstone Project</title>
-    <script src="js/profile.js"></script>
+    <!-- <script src="js/profile.js"></script> -->
 </head>
 <body>
     <section class="menu" id="menu">
@@ -22,7 +22,7 @@
            <li><i class='bx bxs-dashboard'></i> <a href="home.html">Dashboard</a></li>
            <li><i class='bx bx-food-menu'></i><a href="article.html">Articles</a></li> 
            <li><i class='bx bx-layout'></i><a href="queries.html">Queries</a></li> 
-           <li><i class='bx bx-user'></i><a href="">Profile</a></li>
+           <li><i class='bx bx-user'></i><a href="users.html">Users</a></li>
            <li><i class='bx bx-log-out'></i><a href="../blogs/Auntentication/login/login.html">Logout</a></li>  
         </div>
     </section>
@@ -72,129 +72,20 @@
             </div>
         </div>
         <dir class="board">
-            <h3>Recent Articles</h3>
-            <table width="100%">
+            <table width="100%" id="table-data">
                 <thead>
                     <tr>
                         <td>cover</td>
                         <td>title</td>
-                        <td>author</td>
+                        <td>Category</td>
                         <td>date</td>
                         <td>status</td>
                         <td>action</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="picture">
-                            <img src="../img/profile.jpg" alt="">
-                        </td>
-                        <td class="blog-title">
-                            <p>Development Phase</p> 
-                        </td>
-                        <td class="author">
-                            <p>John Doe</p>
-                        </td>
-                        <td class="date">
-                            <p>12/12/2021</p>
-                        </td>
-                        <td class="status">
-                            <p>Published</p>
-                        </td>
-                        <td class="action">
-                            <a href=""><i class='bx bxs-edit'></i></a> 
-                            <a href=""><i class='bx bxs-trash'></i></a> 
-                        </td>
                     
-                    </tr>
-                    <tr>
-                        <td class="picture">
-                            <img src="../img/profile.jpg" alt="">
-                        </td>
-                        <td class="blog-title">
-                            <p>Development Phase</p> 
-                        </td>
-                        <td class="author">
-                            <p>John Doe</p>
-                        </td>
-                        <td class="date">
-                            <p>12/12/2021</p>
-                        </td>
-                        <td class="status">
-                            <p>Published</p>
-                        </td>
-                        <td class="action">
-                            <a href=""><i class='bx bxs-edit'></i></a> 
-                            <a href=""><i class='bx bxs-trash' ></i></a> 
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <td class="picture">
-                            <img src="../img/profile.jpg" alt="">
-                        </td>
-                        <td class="blog-title">
-                            <p>Development Phase</p> 
-                        </td>
-                        <td class="author">
-                            <p>John Doe</p>
-                        </td>
-                        <td class="date">
-                            <p>12/12/2021</p>
-                        </td>
-                        <td class="status">
-                            <p>Published</p>
-                        </td>
-                        <td class="action">
-                            <a href=""><i class='bx bxs-edit'></i></a> 
-                            <a href=""><i class='bx bxs-trash'></i></a> 
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <td class="picture">
-                            <img src="../img/profile.jpg" alt="">
-                        </td>
-                        <td class="blog-title">
-                            <p>Development Phase</p> 
-                        </td>
-                        <td class="author">
-                            <p>John Doe</p>
-                        </td>
-                        <td class="date">
-                            <p>12/12/2021</p>
-                        </td>
-                        <td class="status">
-                            <p>Published</p>
-                        </td>
-                        <td class="action">
-                            <a href=""><i class='bx bxs-edit'></i></a> 
-                            <a href=""><i class='bx bxs-trash'></i></a> 
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <td class="picture">
-                            <img src="../img/profile.jpg" alt="">
-                        </td>
-                        <td class="blog-title">
-                            <p>Development Phase</p> 
-                        </td>
-                        <td class="author">
-                            <p>John Doe</p>
-                        </td>
-                        <td class="date">
-                            <p>12/12/2021</p>
-                        </td>
-                        <td class="status">
-                            <p>Published</p>
-                        </td>
-                        <td class="action">
-                            <a href=""><i class='bx bxs-edit'></i></a> 
-                            <a href=""><i class='bx bxs-trash'></i></a> 
-                        </td>
-                    
-                    </tr>
+                   
                 </tbody>
             </table>
         </dir>
@@ -204,5 +95,6 @@
             $('#menu').toggleClass('active');
         });
     </script>
+    <script defer src="../dashboard/js/home.js"></script>
 </body>
 </html>

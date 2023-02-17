@@ -3,6 +3,8 @@ const names = document.getElementById('names');
 const subject = document.getElementById('subject');
 const email = document.getElementById('email');
 const body = document.getElementById('body');
+// signup button
+const addcontact = document.getElementById('addcontact');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -79,3 +81,31 @@ const validateInputs = () => {
     }
 
 };
+
+queries = JSON.parse(localStorage.getItem('query')) || [];
+
+function saveContact() {
+    
+    validateInputs();
+    const inputControls = form.querySelectorAll('.input-control');
+    const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
+  
+    if (hasError) {
+      return;
+    }
+
+  let query = {};
+  query.names = names.value
+  query.email = email.value
+  query.subject = subject.value
+  query.body = body.value
+  queries.push(query);
+  const stringQuery = JSON.stringify(queries);
+  localStorage.setItem('query', stringQuery);
+    // Redirect to login page after saving blog
+   window.location.replace("../index.html");
+}
+
+
+
+addcontact.onclick = saveContact;
