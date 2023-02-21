@@ -43,23 +43,23 @@ function displayBlogs() {
     // display a message or placeholder content if there are no blogs
     blogsTable.innerHTML = '<tr><td colspan="6">No blogs found.</td></tr>';
   }
-  let anchor = document.querySelectorAll('.edit');
+    let anchor = document.querySelectorAll('.edit');
 
-  for(let i=0;i < anchor.length;i++){
-    let edit = document.createElement("i");
-    edit.setAttribute("class", "bx bxs-edit");
-    edit.setAttribute("id",i)
-    console.log(edit)
-    anchor[i].appendChild(edit);
-  }
-  console.log(anchor.length)
-  let edits = document.querySelectorAll('.bxs-edit');
-console.log(edits.length);
-for(let j = 0;j< edits.length;j++){
-  edits[j].addEventListener('click',function(){
-   let id = edits[j].getAttribute('id')
-   localStorage.setItem('editIndex',id);
-  })
+    for(let i=0;i < anchor.length;i++){
+      let edit = document.createElement("i");
+      edit.setAttribute("class", "bx bxs-edit");
+      edit.setAttribute("id",i)
+      console.log(edit)
+      anchor[i].appendChild(edit);
+    }
+    console.log(anchor.length)
+    let edits = document.querySelectorAll('.bxs-edit');
+  console.log(edits.length);
+  for(let j = 0;j< edits.length;j++){
+    edits[j].addEventListener('click',function(){
+    let id = edits[j].getAttribute('id')
+    localStorage.setItem('editIndex',id);
+    })
 }
 }
 

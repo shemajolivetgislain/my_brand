@@ -66,9 +66,9 @@
                     <div class="form-group">
                         <label for="role">usertype:</label>
                         <select name="action" id="role">
-                            <option value="Published">None</option>
-                            <option value="Published">User</option>
-                            <option value="Not published">admin</option>
+                            <option value="user">None</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
                           </select> 
                         <div class="error"></div> 
                     </div>
@@ -86,7 +86,7 @@
         });
     </script>
     <script defer src="../dashboard/js/profile.js"></script>
-    <script src="js/editblog.js"></script>
+    <script src="../dashboard/js/edituser.js"></script>
     <script>
         function clearData(){
             document.getElementById('form').reset()
