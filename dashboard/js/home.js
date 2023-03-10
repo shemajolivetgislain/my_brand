@@ -1,23 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const currentlogin = document.getElementById('currentLogin');
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  currentlogin.innerHTML = `${currentUser.username}`;
-});
-// get blogs from local storage or initialize an empty array
-const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
-const user = JSON.parse(localStorage.getItem('blogs')) || [];
-
-// display blogs in the table
 function displayBlogs() {
-  const blogsTable = document.querySelector('tbody');
-  blogsTable.innerHTML = '';
+  const blogsTable = document.querySelector("tbody");
+  blogsTable.innerHTML = "";
 
-  if (blogs && blogs.length > 0) {
-    blogs.forEach((blog, index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
+    .then((response) => response.json())
+    .then((blogs) => {
+      const fetchBlogs = blogs.data;
+      if (fetchBlogs && fetchBlogs.length > 0) {
+        // sort the blogs by createdAt in descending order
+        const sortedBlogs = fetchBlogs.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        // get the first five blogs
+        const recentBlogs = sortedBlogs.slice(0, 3);
+        recentBlogs.forEach((blog, i) => {
+          const tr = document.createElement("tr");
+          const createdAt = new Date(blog.createdAt);
+          tr.innerHTML = `
+        <td class="blog-title">
+        <p>${i + 1}</p>
+        </td>
+
         <td class="picture">
-          <img src="${blog.picture}" alt="">
+          <img src="${blog.image}" alt="">
         </td>
         <td class="blog-title">
           <p>${blog.title}</p>
@@ -26,42 +31,26 @@ function displayBlogs() {
           <p>${blog.category}</p>
         </td>
         <td class="date">
-          <p>${blog.date}</p>
+        
+          <p>${createdAt.getDate()}-${
+            createdAt.getMonth() + 1
+          }-${createdAt.getFullYear()}</p>
         </td>
         <td class="status">
           <p>${blog.statuse}</p>
         </td>
         <td class="action">
-          <a href="edit.html"><i class='bx bxs-edit'></i></a>
-          <a href="#" onclick="deleteBlog(${index})"><i class='bx bxs-trash'></i></a>
+          <a href="#"><i class='bx bxs-edit'></i></a>
+          <a href="#"><i class='bx bxs-trash'></i></a>
         </td>
       `;
-      blogsTable.appendChild(tr);
+          blogsTable.appendChild(tr);
+        });
+      } else {
+        // display a message or placeholder content if there are no blogs
+        blogsTable.innerHTML = '<tr><td colspan="6">No blogs found.</td></tr>';
+      }
     });
-  } else {
-    // display a message or placeholder content if there are no blogs
-    blogsTable.innerHTML = '<tr><td colspan="6">No blogs found.</td></tr>';
-  }
 }
 
-// call the displayBlogs function to populate the table
 displayBlogs();
-
-
-const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-const adminMenu = Array.from(document.getElementsByClassName("admin"));
-const userMenu = Array.from(document.getElementsByClassName("user"));
-
-// if(currentUser.role != "admin") adminMenu.forEach(e => e.style.display = 'block');
-// if(currentUser.role != "user") userMenu.forEach(e => e.style.display = 'none');
-
-if(currentUser.role === "admin") {
-  adminMenu.forEach(e => e.style.display = 'block');
-  userMenu.forEach(e => e.style.display = 'block');
-  } 
-  else if(currentUser.role === "user") {
-  adminMenu.forEach(e => e.style.display = 'none');
-  userMenu.forEach(e => e.style.display = 'block');
-  } 
-  

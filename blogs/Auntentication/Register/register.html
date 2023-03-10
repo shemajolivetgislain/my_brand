@@ -1,68 +1,93 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script defer src="../../../main.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Registration</title>
-    <script defer src="./register.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
-        <ul class="navlist">
-            <li><a href="../../../index.html" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-            <li><a href="../login/login.html" class="hero-button">Login</a></li>
-        </ul>
-        
-        <!-- <button type="button" class="hero-button">Login</button> -->
-        <div class="bx bx-menu" id="menu-icon" ></div>
+      <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
+      <ul class="navlist">
+        <li><a href="../../../index.html" class="active">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+        <li><a href="../login/login.html" class="hero-button">Login</a></li>
+      </ul>
+
+      <!-- <button type="button" class="hero-button">Login</button> -->
+      <div class="bx bx-menu" id="menu-icon"></div>
     </header>
     <div class="container">
-        <form id="form" action="#">
-            <div class="wrapper">
-                <h1>Registration</h1>
-            
-                <div class="input-control">
-                    <label for="username">Username</label>
-                    <input id="username" name="username" type="text" placeholder="Enter username">
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter your Email">
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label for="password">Password</label>
-                    <input id="password"name="password" type="password" placeholder="Enter password">
-                    <i class='bx bx-hide show-hide' ></i>
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label for="password2">Confirm again</label>
-                    <input id="password2" name="password2" type="password" placeholder="confirm password">
-                    <i class='bx bx-hide show-hide' ></i>
-                    <div class="error"></div>
-                </div>
-                <button type="submit" id="signup">Sign Up</button>
-                <p class="login-text">Already have an account ? <a href="../login/login.html">Login</a> </p>
-            </div>
-        </form>
-        
+      <form id="form" action="#">
+        <div class="wrapper">
+          <h1>Registration</h1>
+
+          <div class="input-control">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Enter username"
+            />
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Enter your Email"
+            />
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter password"
+            />
+            <i class="bx bx-hide show-hide"></i>
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="password2">Confirm again</label>
+            <input
+              id="confirmPassword"
+              name="password2"
+              type="password"
+              placeholder="confirm password"
+            />
+            <i class="bx bx-hide show-hide"></i>
+            <div class="error"></div>
+          </div>
+          <button type="submit" id="signup">Sign Up</button>
+          <p class="login-text">
+            Already have an account ? <a href="../login/login.html">Login</a>
+          </p>
+        </div>
+      </form>
     </div>
-</body>
-<script>
-    
-</script>
+  </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script defer src="./register.js"></script>
 </html>

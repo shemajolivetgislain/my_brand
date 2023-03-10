@@ -1,40 +1,43 @@
-// get blogs from local storage or initialize an empty array
-const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
-const user = JSON.parse(localStorage.getItem('blogs')) || [];
-
-
-
 // display blogs in boxes
 function displayBox() {
-  const blogContainer = document.querySelector('#post');
-  blogContainer.innerHTML = '';
+  const blogContainer = document.querySelector("#post");
+  blogContainer.innerHTML = "";
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
+    .then((response) => response.json())
+    .then((blogs) => {
+      console.log(blogs.data);
+      const fetchBlogs = blogs.data;
 
-  if (blogs && blogs.length > 0) {
-    blogs.forEach(blog => {
-      const blogBox = document.createElement('div');
-      blogBox.classList.add('post-box');
-      blogBox.innerHTML = `
-        <img src="${blog.picture}" alt="" class="post-img">
-        <h2 class="category">${blog.category}</h2>
+      if (fetchBlogs && fetchBlogs.length > 0) {
+        fetchBlogs.forEach((blog) => {
+          const blogBox = document.createElement("div");
+          const createdAt = new Date(blog.createdAt);
+          blogBox.classList.add("post-box");
+          blogBox.innerHTML = `
+        <img src="${blog.image}" alt="" class="post-img">
+        <h2 class="category">Category:    ${blog.category}</h2>
         <a href="blog-details.html" class="post-title">
           ${blog.title}
         </a>
-        <span class="post-date">${blog.date}</span>
+        <span class="post-date">Date ${createdAt.getDate()}-${
+            createdAt.getMonth() + 1
+          }-${createdAt.getFullYear()}</span>
         <p class="post-description">${blog.body}</p>
         <div class="profile">
           <img src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png" alt="" class="profile-img">
-          <span class="profile-name">shema jolivet</span>
+          <span class="profile-name">Published by ${blog.author}</span>
         </div>
         <div class="blog-btn">
           <a href="blog-details.html" class="blog-button">Read more</a>
         </div>
       `;
-      blogContainer.appendChild(blogBox);
+          blogContainer.appendChild(blogBox);
+        });
+      } else {
+        // display a message or placeholder content if there are no blogs
+        blogContainer.innerHTML = "<p>No blogs found.</p>";
+      }
     });
-  } else {
-    // display a message or placeholder content if there are no blogs
-    blogContainer.innerHTML = '<p>No blogs found.</p>';
-  }
 }
 
 // call the displayBox function to populate the blog container

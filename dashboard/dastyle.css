@@ -232,7 +232,11 @@ span{
     color: var(--second-color);
     font-weight: 400;
 }
-
+.board h1{
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 26px;
+}
 table {
     border-collapse: collapse;
 }

@@ -1,132 +1,120 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
-const role = document.getElementById('role');
-// signup button
-const signup = document.getElementById('signup');
+const form = document.getElementById("form");
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    validateInputs();
+  validateInputs();
+  // grab the values in our inputs
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  // have our values in one object
+  const data = { username, email, password, confirmPassword };
+
+  // interaction with the API endpoint
+  fetch("https://my-brand-api-wm4u.onrender.com/api/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      if (data.ok) {
+        swal("Good job!", data.message).then(() => {
+          // Redirect to the login page
+          location.href = "../login/login.html";
+        });
+      } else {
+        swal(data.message);
+        // alert(data.message);
+      }
+    })
+    .catch((error) => alert(error));
 });
 
 const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success')
-}
-
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
 };
 
-const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
+};
+
+const isValidEmail = (email) => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
 
 const validateInputs = () => {
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const confirmPasswordValue = confirmPassword.value.trim();
 
-    if(usernameValue === '') {
-        setError(username, 'Username is required');
+  if (usernameValue === "") {
+    setError(username, "Username is required");
+  } else {
+    const pattern = /^[a-zA-Z]+$/;
+
+    if (!pattern.test(usernameValue)) {
+      setError(username, "username should contain only characters");
     } else {
-        const pattern = /^[a-zA-Z]+$/;
-    
-        if (!pattern.test(usernameValue)) {
-            setError(username, 'username should contain only characters');
-        } else {
-            setSuccess(username);
-        }
+      setSuccess(username);
     }
+  }
 
-    if(emailValue === '') {
-        setError(email, 'Email is required');
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-    } else {
-        setSuccess(email);
-    }
+  if (emailValue === "") {
+    setError(email, "Email is required");
+  } else if (!isValidEmail(emailValue)) {
+    setError(email, "Provide a valid email address");
+  } else {
+    setSuccess(email);
+  }
 
-    if(passwordValue === '') {
-        setError(password, 'Password is required');
-    } else if (passwordValue.length < 4 ) {
-        setError(password, 'Password must be at least 8 character.')
-    } else {
-        setSuccess(password);
-    }
+  if (passwordValue === "") {
+    setError(password, "Password is required");
+  } else if (passwordValue.length < 4) {
+    setError(password, "Password must be at least 8 character.");
+  } else {
+    setSuccess(password);
+  }
 
-    if(password2Value === '') {
-        setError(password2, 'Please confirm your password');
-    } else if (password2Value !== passwordValue) {
-        setError(password2, "Passwords doesn't match");
-    } else {
-        setSuccess(password2);
-    }
-
+  if (confirmPasswordValue === "") {
+    setError(confirmPassword, "Please confirm your password");
+  } else if (confirmPasswordValue !== passwordValue) {
+    setError(confirmPassword, "Passwords doesn't match");
+  } else {
+    setSuccess(confirmPassword);
+  }
 };
-
 
 const eyeIcons = document.getElementsByClassName("show-hide");
 
 [...eyeIcons].forEach((eyeIcon) => {
-    eyeIcon.addEventListener("click", () =>{
-        const pInput = eyeIcon.parentElement.querySelector("input");
-        if(pInput.type === "password"){
-            eyeIcon.classList.replace("bx-hide", "bx-show");
-            return (pInput.type = "text");
-        }
-        eyeIcon.classList.replace("bx-show", "bx-hide");
-        return (pInput.type = "password");    
-    });
-});
-
-// 
-
-users = JSON.parse(localStorage.getItem('users')) || [];
-
-function saveUser() {
-    validateInputs();
-
-    const inputControls = form.querySelectorAll('.input-control');
-    const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
-  
-    if (hasError) {
-      return;
+  eyeIcon.addEventListener("click", () => {
+    const pInput = eyeIcon.parentElement.querySelector("input");
+    if (pInput.type === "password") {
+      eyeIcon.classList.replace("bx-hide", "bx-show");
+      return (pInput.type = "text");
     }
-
-
-  let user = {};
-  user.username = username.value
-  user.email = email.value
-  user.password = password.value
-  user.confirmPassword = password2.value
-  user.role = "user"
-  users.push(user);
-  const stringUsers = JSON.stringify(users);
-  localStorage.setItem('users', stringUsers);
-    // Redirect to login page after saving user
-   window.location.replace("../login/login.html");
-}
-
-// function displayUsers() {
-//   users.forEach((user, index) => {
-//     listUsers.innerHTML += `<li>user number ${index} is ${user.firstName} ${user.lastName}</li>`
-//   })
-// }
-
-signup.onclick = saveUser;
+    eyeIcon.classList.replace("bx-show", "bx-hide");
+    return (pInput.type = "password");
+  });
+});
