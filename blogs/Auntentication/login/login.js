@@ -21,7 +21,12 @@ form.addEventListener("submit", (e) => {
     .then((data) => {
       if (data.ok) {
         // set our token in LS
-        localStorage.setItem("authToken", data.token);
+        const loginUser = {
+          token: data.token,
+          username: data.data.username,
+          role: data.data.role,
+        };
+        localStorage.setItem("authToken", JSON.stringify(loginUser));
         location.href = "../../../dashboard/home.html";
       } else {
         swal(data.message);

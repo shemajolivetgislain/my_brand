@@ -1,10 +1,10 @@
 function displayUsers() {
   const blogsTable = document.querySelector("tbody");
   blogsTable.innerHTML = "";
-  let authToken = localStorage.getItem("authToken");
+  let authToken = JSON.parse(localStorage.getItem("authToken"));
   fetch("https://my-brand-api-wm4u.onrender.com/api/users", {
     headers: {
-      Authorization: `Bearer ${authToken}`,
+      Authorization: `Bearer ${authToken.token}`,
     },
   })
     .then((response) => response.json())
