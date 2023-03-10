@@ -65,9 +65,9 @@ function displayBlogs() {
             </td>
             <td class="action">
               <a href="#"><i class='bx bxs-edit'></i></a>
-              <a href="#"><i class='bx bxs-trash' onclick="deleteArticle('${
+              <a href="#"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this blog post?')) { deleteArticle('${
                 blog._id
-              }', this.parentNode.parentNode)"></i></a>
+              }', this.parentNode.parentNode) }"></i></a>
             </td>
           `;
           blogsTable.appendChild(tr);
