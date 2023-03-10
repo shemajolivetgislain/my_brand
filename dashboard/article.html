@@ -1,82 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dastyle.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dastyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous"
+    ></script>
     <title>List of articles</title>
-    
-</head>
-<body>
+  </head>
+  <body>
     <section class="menu" id="menu">
-        <div class="logo">
-            <h2><span>[JS]</span> Jolivet.</h2>
-        </div>
-        <div class="items">
-            <li class="user"><i class='bx bxs-dashboard'></i> <a href="home.html">Dashboard</a></li>
-            <li class="user"><i class='bx bx-food-menu'></i><a href="article.html">Articles</a></li> 
-            <li class="admin"><i class='bx bx-layout'></i><a href="queries.html">Queries</a></li> 
-            <li class="admin"><i class='bx bx-user'></i><a href="users.html">Users</a></li>
-            <li class="user"><i class='bx bx-log-out'></i><a href="../blogs/Auntentication/login/login.html">Logout</a></li>  
-         </div>
+      <div class="logo">
+        <h2><span>[JS]</span> Jolivet.</h2>
+      </div>
+      <div class="items">
+        <li class="user">
+          <i class="bx bxs-dashboard"></i> <a href="home.html">Dashboard</a>
+        </li>
+        <li class="user">
+          <i class="bx bx-food-menu"></i><a href="article.html">Articles</a>
+        </li>
+        <li class="admin">
+          <i class="bx bx-layout"></i><a href="queries.html">Queries</a>
+        </li>
+        <li class="admin">
+          <i class="bx bx-user"></i><a href="users.html">Users</a>
+        </li>
+        <li class="user">
+          <i class="bx bx-log-out"></i
+          ><a href="../blogs/Auntentication/login/login.html">Logout</a>
+        </li>
+      </div>
     </section>
 
     <section id="interface" class="interface">
-        <div class="navigation">
-            <div class="n1">
-                <div>
-                    <i class="bx bx-menu" id="menu-btn"></i>
-                </div>
-                <div class="search">
-                    <i class='bx bx-search'></i>
-                    <input type="text" placeholder="Search" id="">
-                </div>
-            </div>
-            <div class="profile">
-                <img src="../img/profile.jpg" alt="">
-                <div class="name">
-                    <h3 id="currentLogin"></h3>
-                </div>
-           </div>
+      <div class="navigation">
+        <div class="n1">
+          <div>
+            <i class="bx bx-menu" id="menu-btn"></i>
+          </div>
+          <div class="search">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search" id="" />
+          </div>
         </div>
-        <div class="headers">
-            <h3 class="i-name">
-                List of Articles
-            </h3>
-            <a href="add.html" class="header-btn">ADD NEW</a>
+        <div class="profile">
+          <img src="../img/profile.jpg" alt="" />
+          <div class="name">
+            <h3 id="currentLogin"></h3>
+          </div>
         </div>
-        <dir class="board">
-            <table width="100%" id="table-data">
-                <thead>
-                    <tr>
-                        <td>N0</td>
-                        <td>cover</td>
-                        <td>title</td>
-                        <td>Category</td>
-                        <td>date</td>
-                        <td>status</td>
-                        <td>action</td>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </dir>
+      </div>
+      <div class="headers">
+        <h3 class="i-name">List of Articles</h3>
+        <a href="add.html" class="header-btn">ADD NEW</a>
+      </div>
+      <dir class="board">
+        <table width="100%" id="table-data">
+          <thead>
+            <tr>
+              <td>N0</td>
+              <td>cover</td>
+              <td>title</td>
+              <td>Category</td>
+              <td>date</td>
+              <td>status</td>
+              <td>action</td>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </dir>
     </section>
     <script>
-        $('#menu-btn').click(function(){
-            $('#menu').toggleClass('active');
-        });
+      $("#menu-btn").click(function () {
+        $("#menu").toggleClass("active");
+      });
     </script>
     <script defer src="../dashboard/js/displayblog.js"></script>
-    <!-- <script defer src="../dashboard/js/userroles.js"></script> -->
-
-
-</body>
+    <script defer src="../dashboard/js/userroles.js"></script>
+  </body>
 </html>

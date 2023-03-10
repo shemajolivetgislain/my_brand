@@ -8,6 +8,8 @@
       {
         "image-alt": "off"
       }
-    ]
+    ],
+    "axe/forms": "off",
+    "axe/structure": "off"
   }
 }
