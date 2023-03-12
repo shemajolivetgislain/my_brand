@@ -1,5 +1,91 @@
-// // Define your Cloudinary name
-// const CLOUD_NAME = "dja5pnddu";
+var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dja5pnddu/upload/";
+var CLOUDINARY_UPLOAD_PRESET = "usnlxsti";
+
+// var imageUpload = document.getElementById("add_image");
+
+// imageUpload.addEventListener("change", function (event) {
+//   var file = event.target.files[0];
+//   var formData = new FormData();
+//   formData.append("file", file);
+//   formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+//   fetch(CLOUDINARY_URL, {
+//     method: "POST",
+//     body: formData,
+//   })
+//     .then(function (response) {
+//       console.log(response.json());
+//     })
+//     .catch(function (err) {
+//       console.log(err);
+//     });
+// });
+const form = document.getElementById("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  validateInputs();
+
+  const title = document.getElementById("title").value;
+  const statuse = document.getElementById("statuse").value;
+  const category = document.getElementById("category").value;
+  const body = document.getElementById("body").value;
+  const imageUpload = document.getElementById("add_image").files[0];
+
+  let authToken = JSON.parse(localStorage.getItem("authToken"));
+
+  const formData = new FormData();
+  formData.append("file", imageUpload);
+  formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+  // Upload image to Cloudinary
+  fetch(CLOUDINARY_URL, {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const imageUrl = data.secure_url;
+
+      // Store image URL in localStorage
+      localStorage.setItem("imageUrl", imageUrl);
+
+      // Send post request to your API with image URL included in data
+      const postData = {
+        title,
+        statuse,
+        category,
+        image: localStorage.getItem("imageUrl"),
+        body,
+      };
+      fetch("https://my-brand-api-wm4u.onrender.com/api/blogs", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${authToken.token}`,
+        },
+        body: JSON.stringify(postData),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (data.ok) {
+            swal("Good job!", data.message).then(() => {
+              // Redirect to the login page
+              location.href = "../login/login.html";
+            });
+          } else {
+            swal(data.message);
+            // alert(data.message);
+          }
+        })
+        .catch((error) => alert(error));
+    })
+    .catch((error) => alert(error));
+});
 
 // // Add an event listener to the file input element
 // add_image.addEventListener("change", function () {
@@ -9,7 +95,7 @@
 //   formData.append("uploadImage", add_image.files[0]);
 
 //   // Use the Cloudinary Upload API to upload the uploadImage to Cloudinary
-//   fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/blogs-uploadImage`, {
+//   fetch(`https://api.cloudinary.com/v1_1/dja5pnddu`, {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -27,62 +113,46 @@
 // });
 
 // When submitting the form, send the uploadImage URL path to the backend API
-const form = document.getElementById("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+// const form = document.getElementById("form");
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
 
-  validateInputs();
+//   validateInputs();
 
-  const title = document.getElementById("title").value;
-  const statuse = document.getElementById("statuse").value;
-  const category = document.getElementById("category").value;
-  const body = document.getElementById("body").value;
-  const uploadImage = document.getElementById("add_image");
-  var imgUrl;
+//   const title = document.getElementById("title").value;
+//   const statuse = document.getElementById("statuse").value;
+//   const category = document.getElementById("category").value;
+//   const body = document.getElementById("body").value;
+//   // const uploadImage = document.getElementById("add_image");
+//   // var imgUrl;
 
-  let authToken = JSON.parse(localStorage.getItem("authToken"));
+//   let authToken = JSON.parse(localStorage.getItem("authToken"));
 
-  uploadImage.onchange = function () {
-    if (uploadImage.files[0].size < 5000000) {
-      //5000000 ~ 5mb (or 5000000bytes)
-      var fReader = new FileReader();
-      fReader.onload = function (e) {
-        imgUrl = e.target.result
-        // blogImage.src = imgUrl;
-      };
-      fReader.readAsDataURL(uploadImage.files[0]);
-    } else {
-      alert("The File size is too big");
-    }
-  };
-  alert(imgUrl);
-  var image = imgUrl;
-
-  const data = { title, statuse, category, image, body };
-  fetch("http://127.0.0.1:3000/api/blogs", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${authToken.token}`,
-    },
-    body: JSON.stringify(data),
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      if (data.ok) {
-        swal("Good job!", data.message).then(() => {
-          // Redirect to the login page
-          location.href = "../login/login.html";
-        });
-      } else {
-        swal(data.message);
-        // alert(data.message);
-      }
-    })
-    .catch((error) => alert(error));
-});
+//   const data = { title, statuse, category, image: imageUpload, body };
+//   fetch("https://my-brand-api-wm4u.onrender.com/api/blogs", {
+//     method: "POST",
+//     headers: {
+//       "content-type": "application/json",
+//       Authorization: `Bearer ${authToken.token}`,
+//     },
+//     body: JSON.stringify(data),
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       if (data.ok) {
+//         swal("Good job!", data.message).then(() => {
+//           // Redirect to the login page
+//           location.href = "../login/login.html";
+//         });
+//       } else {
+//         swal(data.message);
+//         // alert(data.message);
+//       }
+//     })
+//     .catch((error) => alert(error));
+// });
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
