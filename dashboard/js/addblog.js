@@ -1,26 +1,69 @@
-const form = document.getElementById("form");
+// // Define your Cloudinary name
+// const CLOUD_NAME = "dja5pnddu";
 
+// // Add an event listener to the file input element
+// add_image.addEventListener("change", function () {
+//   // Create a new FormData object
+//   const formData = new FormData();
+//   // Append the selected file to the FormData object
+//   formData.append("uploadImage", add_image.files[0]);
+
+//   // Use the Cloudinary Upload API to upload the uploadImage to Cloudinary
+//   fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/blogs-uploadImage`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: formData,
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // Get the Cloudinary URL path from the response data
+//       const imageUrl = data.secure_url;
+//       // Save the URL path to local storage
+//       localStorage.setItem("uploadImage", imageUrl);
+//     })
+//     .catch((error) => console.log(error));
+// });
+
+// When submitting the form, send the uploadImage URL path to the backend API
+const form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   validateInputs();
-  // grab the values in our inputs
+
   const title = document.getElementById("title").value;
-  // const image = document.getElementById("image").value;
   const statuse = document.getElementById("statuse").value;
   const category = document.getElementById("category").value;
   const body = document.getElementById("body").value;
+  const uploadImage = document.getElementById("add_image");
+  var imgUrl;
 
-  // have our values in one object
-  const data = { title, statuse, category, body };
-
-  // interaction with the API endpoint
   let authToken = JSON.parse(localStorage.getItem("authToken"));
-  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/", {
+
+  uploadImage.onchange = function () {
+    if (uploadImage.files[0].size < 5000000) {
+      //5000000 ~ 5mb (or 5000000bytes)
+      var fReader = new FileReader();
+      fReader.onload = function (e) {
+        imgUrl = e.target.result
+        // blogImage.src = imgUrl;
+      };
+      fReader.readAsDataURL(uploadImage.files[0]);
+    } else {
+      alert("The File size is too big");
+    }
+  };
+  alert(imgUrl);
+  var image = imgUrl;
+
+  const data = { title, statuse, category, image, body };
+  fetch("http://127.0.0.1:3000/api/blogs", {
     method: "POST",
     headers: {
+      "content-type": "application/json",
       Authorization: `Bearer ${authToken.token}`,
-      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   })
@@ -31,10 +74,9 @@ form.addEventListener("submit", (e) => {
       if (data.ok) {
         swal("Good job!", data.message).then(() => {
           // Redirect to the login page
-          location.href = "../article.html";
+          location.href = "../login/login.html";
         });
       } else {
-        console.log(data.message);
         swal(data.message);
         // alert(data.message);
       }
@@ -66,7 +108,7 @@ const setSuccess = (element) => {
 const validateInputs = () => {
   const titleValue = title.value.trim();
   const bodyValue = body.value.trim();
-  // const imageValue = image.files;
+  // const imageValue = uploadImage.files;
   const categoryValue = category.value.trim();
   const statusValue = statuse.value.trim();
 
@@ -82,20 +124,20 @@ const validateInputs = () => {
     }
   }
   // if (imageValue.length === 0) {
-  //   setError(image, "image is required");
+  //   setError(uploadImage, "uploadImage is required");
   // } else {
   //   const file = imageValue[0];
   //   const fileType = file.type;
   //   const fileSize = file.size;
 
   //   if (
-  //     fileType !== "image/jpeg" &&
-  //     fileType !== "image/png" &&
-  //     fileType !== "image/jpg"
+  //     fileType !== "uploadImage/jpeg" &&
+  //     fileType !== "uploadImage/png" &&
+  //     fileType !== "uploadImage/jpg"
   //   ) {
-  //     setError(image, "File type should be jpeg, png, or jpg");
+  //     setError(uploadImage, "File type should be jpeg, png, or jpg");
   //   } else {
-  //     setSuccess(image);
+  //     setSuccess(uploadImage);
   //   }
   // }
 

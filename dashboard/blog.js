@@ -96,17 +96,6 @@ const validateInputs = () => {
 
 };
 
-let renderImage;
-document.querySelector("#picture").addEventListener("change", function(){
-    const reader = new FileReader();
-    reader.addEventListener('load', () =>{
-        localStorage.setItem("recent-image", reader.result);
-    });
-
-    reader.readAsDataURL(this.files[0]);
-});
-
-blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
 function saveBlog() {
     renderImage = localStorage.getItem('recent-image');
@@ -134,69 +123,3 @@ function saveBlog() {
 }
 
 addBlog.onclick = saveBlog;
-//method to save data into localstorage
-// function saveBlog(){
-
-//     renderImage = localStorage.getItem('recent-image');
-//     validateInputs();
-
-//     const inputControls = form.querySelectorAll('.form-group');
-//     const hasError = [...inputControls].some((inputControl) => inputControl.classList.contains('error'));
-  
-//     if (hasError) {
-//       return;
-//     }
-//     //get data from localstorage and store to contaclist array
-//     //we must to use JSON.parse, because data as string, we need convert to array
-//     blogList = JSON.parse(localStorage.getItem('blogs')) ?? []
-
-//     //get last array to get last id
-//     //and store it into variable id
-//     var id
-//     blogList.length != 0 ? blogList.findLast((item) => id = item.id) : id = 0
-
-//     if(document.getElementById('id').value){
-
-//         //edit contactlist array based on value
-//         blogList.forEach(value => {
-//             if(document.getElementById('id').value == value.id){
-//                 value.title      = document.getElementById('title').value, 
-//                 value.date       = document.getElementById('date').value, 
-//                 value.picture  = document.getElementById('picture').value, 
-//                 value.category     = document.getElementById('category').value
-//                 value.statuse     = document.getElementById('statuse').value
-//             }
-//         });
-
-//         //remove hidden input
-//         document.getElementById('id').value = ''
-
-//     }else{
-
-//         //save
-//         //get data from form
-//         var item = {
-//             id        : id + 1, 
-//             title      : document.getElementById('title').value, 
-//             date       : document.getElementById('date').value, 
-//             picture   : document.getElementById('picture').value, 
-//             category     : document.getElementById('category').value,
-//             statuse     : document.getElementById('statuse').value
-//         }
-
-//         //add item data to array contactlist
-//         contactList.push(item)
-//     }
-
-//     // save array into localstorage
-//     localStorage.setItem('listItem', JSON.stringify(blogList))
-//     window.location.replace("article.html");
-
-//     //update table list
-//     displayBlogs();
-
-//     //remove form data
-//     document.getElementById('form').reset()
-// }
-
-
