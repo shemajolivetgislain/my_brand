@@ -3,13 +3,9 @@
     "development"
   ],
   "hints": {
-    "axe/text-alternatives": [
-      "default",
-      {
-        "image-alt": "off"
-      }
-    ],
+    "axe/text-alternatives": "off",
     "axe/forms": "off",
-    "axe/structure": "off"
+    "axe/structure": "off",
+    "highest-available-document-mode": "off"
   }
 }

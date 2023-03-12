@@ -1,87 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="blogstyle.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="blogstyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Blog Detail</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
-        <ul class="navlist">
-            <li><a href="../index.html" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-            <li><a href="Auntentication/login/login.html" class="hero-button">Login</a></li>
-        </ul>
-        
-        <!-- <button type="button" class="hero-button">Login</button> -->
-        <div class="bx bx-menu" id="menu-icon" ></div>
+      <a href="#" class="logo"><span>[JS]</span>Jolivet.</a>
+      <ul class="navlist">
+        <li><a href="../index.html" class="active">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+        <li>
+          <a href="Auntentication/login/login.html" class="hero-button"
+            >Login</a
+          >
+        </li>
+      </ul>
+
+      <!-- <button type="button" class="hero-button">Login</button> -->
+      <div class="bx bx-menu" id="menu-icon"></div>
     </header>
     <section class="blog-detail" id="blog-detail">
-        <h1>
-            blogs check test
-        </h1>
-        <div class="blog-img">
-            <img src="../img/img2.jpg" alt="">
-        </div>
-        <div class="blog-user">
-            <div class="user-img">
-                <img src="../img/profile.jpg" alt="">
-            </div>
-            <div class="user-name">
-                <h3>shema Jolivet</h3>
-                <p>Posted on 12th Jan 2023</p>
-            </div>
+      <div class="blogsection" id="blogdetailsection">
+        <!-- where I will display blog details -->
+      </div>
+      <hr />
+      <h3>Comments</h3>
+      <div class="blog-user">
+        <div id="blogcommentsection"></div>
+      </div>
 
-        </div>
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-             Maiores cum culpa minus officiis quod atque, modi illum tempore at ad corporis voluptatem,
-              saepe perspiciatis quia enim rem! Distinctio, optio? Quo.
+      <hr />
 
-              Praesent mattis maecenas elementum nisl vestibulum odio hendrerit vulputate, commodo faucibus inceptos ad nisi platea porttitor, 
-            orci varius enim lacinia dictumst congue blandit. Augue torquent aenean tortor nulla eros nunc id vel ac himenaeos mauris fringilla 
-            vestibulum, primis sollicitudin platea inceptos tempor dis rutrum hac sodales purus sagittis. Ornare velit euismod ullamcorper venenatis at semper eget vel, 
-            tincidunt proin hendrerit fames turpis dictum aliquam, scelerisque netus porttitor faucibus accumsan fermentum id.
-        </p>
-        <hr>
-        <h3>Comments</h3>
-        <div class="blog-user">
-            <div class="user-img">
-                <img src="../img/profile.jpg" alt="">
-            </div>
-            <div class="user-name">
-                <h3>shema</h3>
-                <p>Lorem ipsum dolor sit amet </p>
-            </div>
-        </div>
-        <hr>
-
-        <h3>
-            Leave comment
-        </h3>
-        <div class="form-group">
-            <label for="author">Add comment:</label>
-            <textarea >add comment here.</textarea>
-        </div>
-        <input type="submit" value="Comment">
+      <h3>Leave comment</h3>
+      <div class="form-group">
+        <form action="#" id="form">
+          <input type="text" id="fullName" placeholder="Enter your fullname" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+          />
+          <textarea placeholder="add comment here." id="comment"></textarea>
+          <input type="submit" value="Comment" />
+        </form>
+      </div>
     </section>
     <section class="footer">
-        <hr>
-       <div class="footer-text">
-        <p>Copyright ©  2023 by Shema Jolivet All Rights Reserved</p>
-       </div> 
+      <hr />
+      <div class="footer-text">
+        <p>Copyright © 2023 by Shema Jolivet All Rights Reserved</p>
+      </div>
     </section>
     <script src="../main.js"></script>
-</body>
+    <script src="blogdetails.js"></script>
+    <script src="comments.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
 </html>

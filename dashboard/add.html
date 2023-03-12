@@ -20,7 +20,7 @@
       integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
       crossorigin="anonymous"
     ></script>
-    <title>Capstone Project</title>
+    <title>Add Blog</title>
   </head>
   <body>
     <section class="menu" id="menu">
@@ -65,21 +65,21 @@
           </div>
         </div>
       </div>
-      <h3 class="i-name">Add new Blog</h3>
-      <p class="i-description">Add a new blog to the website</p>
+      <h3 class="i-name">Add Blog</h3>
+      <p class="i-description">Add blog here</p>
       <div class="form-container">
-        <form enctype="multipart/form-data" method="post" id="form">
-          <input type="hidden" name="id" id="id" />
+        <form action="#" id="form">
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Title" />
             <div class="error"></div>
           </div>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="author">Picture:</label>
-            <input type="text" id="image" placeholder="upload image" />
+            <input type="file" id="add_image" placeholder="upload image" />
             <div class="error"></div>
-          </div> -->
+          </div>
+
           <div class="form-group">
             <label for="category">Category:</label>
             <select name="action" id="category">
@@ -100,11 +100,14 @@
           </div>
           <div class="form-group">
             <label for="author">Body:</label>
-            <textarea id="body" name="body">Enter your articles Body</textarea>
+            <textarea
+              id="body"
+              name="body"
+              placeholder="Enter your articles Body"
+            ></textarea>
             <div class="error"></div>
           </div>
-
-          <input type="submit" value="Save" id="addBlog" />
+          <input type="submit" value="Save" id="update" />
           <!-- <a href="article.html" class="submit-btn"> Save</a> -->
         </form>
       </div>
@@ -114,8 +117,8 @@
         $("#menu").toggleClass("active");
       });
     </script>
-    <script defer src="../dashboard/js/userroles.js"></script>
     <script defer src="../dashboard/js/addblog.js"></script>
+    <script defer src="../dashboard/js/userroles.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

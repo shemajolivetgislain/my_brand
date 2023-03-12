@@ -28,7 +28,9 @@ function displayBox() {
           <span class="profile-name">Published by ${blog.author}</span>
         </div>
         <div class="blog-btn">
-          <a href="blog-details.html" class="blog-button">Read more</a>
+          <a href="blog-details.html?id=${
+            blog._id
+          }" class="blog-button">Read more</a>
         </div>
       `;
           blogContainer.appendChild(blogBox);
