@@ -32,7 +32,7 @@ function displayBlogs() {
   const blogsTable = document.querySelector("tbody");
   blogsTable.innerHTML = "";
 
-  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/")
     .then((response) => response.json())
     .then((blogs) => {
       console.log(blogs.data);
@@ -64,7 +64,9 @@ function displayBlogs() {
               <p>${blog.statuse}</p>
             </td>
             <td class="action">
-              <a href="#"><i class='bx bxs-edit'></i></a>
+              <a href="../dashboard/edit.html?id=${
+                blog._id
+              }"><i class='bx bxs-edit'></i></a>
               <a href="#"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this blog post?')) { deleteArticle('${
                 blog._id
               }', this.parentNode.parentNode) }"></i></a>
