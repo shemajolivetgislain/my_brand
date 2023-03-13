@@ -73,13 +73,14 @@ form.addEventListener("submit", (e) => {
         })
         .then((data) => {
           if (data.ok) {
-            swal("Good job!", data.message).then(() => {
+            // swal("Good job!", data.message).then(() => {
               // Redirect to the login page
-              location.href = "../login/login.html";
-            });
+              location.href = "../../dashboard/article.html";
+            // });
           } else {
             swal(data.message);
             // alert(data.message);
+            location.href = "../../dashboard/article.html";
           }
         })
         .catch((error) => alert(error));

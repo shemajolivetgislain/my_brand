@@ -22,14 +22,14 @@ fetch(`https://my-brand-api-wm4u.onrender.com/api/blogs/${id}`)
     console.log(data.data.image);
 
     // Populate the status select field
-    const statusOptions = ["None", "Published", "Not published"];
-    statusOptions.forEach((optionValue) => {
-      const option = document.createElement("option");
-      option.value = optionValue;
-      option.textContent = optionValue;
-      statusSelect.appendChild(option);
-    });
-    statusSelect.value = data.data.status;
+    // const statusOptions = ["None", "Published", "Not published"];
+    // statusOptions.forEach((optionValue) => {
+    //   const option = document.createElement("option");
+    //   option.value = optionValue;
+    //   option.textContent = optionValue;
+    //   statusSelect.appendChild(option);
+    // });
+    statusSelect.value = data.data.statuse;
     bodyInput.value = data.data.body;
   })
   .catch((error) => {
@@ -45,7 +45,7 @@ form.addEventListener("submit", (e) => {
 
   const title = titleInput.value;
   const category = categorySelect.value;
-  const status = statusSelect.value;
+  const statuse = statusSelect.value;
   const body = bodyInput.value;
   const imageFile = imageInput.files[0];
 
@@ -59,7 +59,7 @@ form.addEventListener("submit", (e) => {
     JSON.stringify({
       title,
       category,
-      status,
+      statuse,
       body,
     })
   );
@@ -79,7 +79,7 @@ form.addEventListener("submit", (e) => {
       const postData = {
         title,
         category,
-        status,
+        statuse,
         image: imageUrl,
         body,
       };
@@ -97,13 +97,14 @@ form.addEventListener("submit", (e) => {
         })
         .then((data) => {
           if (data.ok) {
-            swal("Good job!", data.message).then(() => {
-              // Redirect to the blog post page
-              location.href = "../blog-post/blog-post.html?id=${id}";
-            });
+            // swal("Good job!", data.message).then(() => {
+            // Redirect to the login page
+            location.href = "../../dashboard/article.html";
+            // });
           } else {
             swal(data.message);
             // alert(data.message);
+            location.href = "../../dashboard/article.html";
           }
         })
         .catch((error) => alert(error));

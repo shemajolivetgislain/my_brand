@@ -32,7 +32,7 @@ function displayBlogs() {
   const blogsTable = document.querySelector("tbody");
   blogsTable.innerHTML = "";
 
-  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/")
     .then((response) => response.json())
     .then((blogs) => {
       console.log(blogs.data);

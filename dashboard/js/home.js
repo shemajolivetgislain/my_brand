@@ -61,3 +61,43 @@ function displayBlogs() {
 }
 
 displayBlogs();
+
+function publishedBlog() {
+  const published = document.getElementById("published");
+  published.innerHTML = "";
+
+  fetch("http://127.0.0.1:3000/api/blogs/published")
+    .then((response) => response.json())
+    .then((blogs) => {
+      const fetchBlogs = blogs.data;
+      console.log(blogs.countPublished);
+      if (fetchBlogs && fetchBlogs.length > 0) {
+        published.innerHTML += fetchBlogs.length;
+      } else {
+        // display a message or placeholder content if there are no blogs
+        published.innerHTML = "0";
+      }
+    });
+}
+
+publishedBlog();
+
+function unPublishedBlog() {
+  const not_Published = document.getElementById("not_Published");
+  not_Published.innerHTML = "";
+
+  fetch("http://127.0.0.1:3000/api/blogs/unpublished")
+    .then((response) => response.json())
+    .then((blogs) => {
+      const fetchBlogs = blogs.data;
+      console.log(blogs.countPublished);
+      if (fetchBlogs && fetchBlogs.length > 0) {
+        not_Published.innerHTML += fetchBlogs.length;
+      } else {
+        // display a message or placeholder content if there are no blogs
+        not_Published.innerHTML = "0";
+      }
+    });
+}
+
+unPublishedBlog();
