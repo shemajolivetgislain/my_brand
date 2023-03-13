@@ -1,110 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dastyle.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dastyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous"
+    ></script>
     <title>Edit Blog</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <section class="menu" id="menu">
-        <div class="logo">
-            <h2><span>[JS]</span> Jolivet.</h2>
-        </div>
-        <div class="items">
-            <li class="user"><i class='bx bxs-dashboard'></i> <a href="home.html">Dashboard</a></li>
-            <li class="user"><i class='bx bx-food-menu'></i><a href="article.html">Articles</a></li> 
-            <li class="admin"><i class='bx bx-layout'></i><a href="queries.html">Queries</a></li> 
-            <li class="admin"><i class='bx bx-user'></i><a href="users.html">Users</a></li>
-            <li class="user"><i class='bx bx-log-out'></i><a href="../blogs/Auntentication/login/login.html">Logout</a></li>  
-         </div>
+      <div class="logo">
+        <h2><span>[JS]</span> Jolivet.</h2>
+      </div>
+      <div class="items">
+        <li class="user">
+          <i class="bx bxs-dashboard"></i> <a href="home.html">Dashboard</a>
+        </li>
+        <li class="user">
+          <i class="bx bx-food-menu"></i><a href="article.html">Articles</a>
+        </li>
+        <li class="admin">
+          <i class="bx bx-layout"></i><a href="queries.html">Queries</a>
+        </li>
+        <li class="admin">
+          <i class="bx bx-user"></i><a href="users.html">Users</a>
+        </li>
+        <li class="user">
+          <i class="bx bx-log-out"></i
+          ><a href="../blogs/Auntentication/login/login.html">Logout</a>
+        </li>
+      </div>
     </section>
 
     <section id="interface" class="interface">
-        <div class="navigation">
-            <div class="n1">
-                <div>
-                    <i class="bx bx-menu" id="menu-btn"></i>
-                </div>
-                <div class="search">
-                    <i class='bx bx-search'></i>
-                    <input type="text" placeholder="Search" id="">
-                </div>
-            </div>
-            <div class="profile">
-                <img src="../img/profile.jpg" alt="">
-                <div class="name">
-                    <h3 id="currentLogin"></h3>
-                </div>
-           </div>
+      <div class="navigation">
+        <div class="n1">
+          <div>
+            <i class="bx bx-menu" id="menu-btn"></i>
+          </div>
+          <div class="search">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search" id="" />
+          </div>
         </div>
-            <h3 class="i-name">
-                Edit Blog
-            </h3>
-            <p class="i-description">
-                Edit blog here
-            </p>
-            <div class="form-container">
-                <form action="#"  id="editForm">
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" placeholder="Title" >
-                        <div class="error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="author">Date:</label>
-                        <input type="date" name="date" id="date" placeholder="Date">
-                        <div class="error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="author">Picture:</label>
-                        <input type="file" id="picture" placeholder="upload image">
-                        <div class="error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="author">Body:</label>
-                        <textarea id="body" name="body">Enter your articles Body</textarea>
-                        <div class="error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Category:</label>
-                        <select name="action" id="category">
-                            <option value="Published">None</option>
-                            <option value="Published">Tech</option>
-                            <option value="Not published">web</option>
-                          </select> 
-                        <div class="error"></div> 
-                    </div>
-                    <div class="form-group">
-                        <label for="author">Status:</label>
-                        <select name="action" id="statuse">
-                            <option value="Published">None</option>
-                            <option value="Published">Published</option>
-                            <option value="Not published">Not published</option>
-                          </select> 
-                        <div class="error"></div> 
-                    </div>
-                  <input type="submit" value="Save" id="update" >
-                  <!-- <a href="article.html" class="submit-btn"> Save</a> -->
-                </form>
-            </div>
-       
-        
+        <div class="profile">
+          <img src="../img/profile.jpg" alt="" />
+          <div class="name">
+            <h3 id="currentLogin"></h3>
+          </div>
+        </div>
+      </div>
+      <h3 class="i-name">Edit Blog</h3>
+      <p class="i-description">Edit blog here</p>
+      <div class="form-container">
+        <form action="#" id="editForm">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Title" />
+            <div class="error"></div>
+          </div>
+          <div class="form-group">
+            <label for="author">Picture:</label>
+            <input type="file" id="add_image" placeholder="upload image" />
+            <div class="error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="Category">Category:</label>
+            <input
+              type="text"
+              id="category"
+              name="category"
+              placeholder="Category"
+            />
+            <div class="error"></div>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="action" id="category">
+              <option value="">Select Category</option>
+            </select>
+            <div class="error"></div>
+          </div> -->
+          <div class="form-group">
+            <label for="author">Status:</label>
+            <select name="action" id="statuse">
+              <option value="">Select Status</option>
+            </select>
+            <div class="error"></div>
+          </div>
+          <div class="form-group">
+            <label for="author">Body:</label>
+            <textarea id="body" name="body">Enter your articles Body</textarea>
+            <div class="error"></div>
+          </div>
+          <input type="submit" value="Save" id="update" />
+          <!-- <a href="article.html" class="submit-btn"> Save</a> -->
+        </form>
+      </div>
     </section>
     <script>
-        $('#menu-btn').click(function(){
-            $('#menu').toggleClass('active');
-        });
+      $("#menu-btn").click(function () {
+        $("#menu").toggleClass("active");
+      });
     </script>
     <script defer src="../dashboard/js/editblog.js"></script>
-    <script defer src="../dashboard/js/profile.js"></script>
     <script defer src="../dashboard/js/userroles.js"></script>
-</body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
 </html>
