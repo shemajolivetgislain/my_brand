@@ -22,7 +22,10 @@ function displayBox() {
         <span class="post-date">Date ${createdAt.getDate()}-${
             createdAt.getMonth() + 1
           }-${createdAt.getFullYear()}</span>
-        <p class="post-description">${blog.body}</p>
+        <p class="post-description">${blog.body
+          .split(" ")
+          .slice(0, 30)
+          .join(" ")}...</p>
         <div class="profile">
           <img src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png" alt="" class="profile-img">
           <span class="profile-name">Published by ${blog.author}</span>
