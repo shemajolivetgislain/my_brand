@@ -39,8 +39,8 @@ function singleBlog() {
       console.log(error);
     });
 }
-
 singleBlog();
+
 function displayComments() {
   var div = document.getElementById("blogcommentsection");
   fetch(`https://my-brand-api-wm4u.onrender.com/api/blog/${id}/comments/`, {

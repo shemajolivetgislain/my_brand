@@ -65,7 +65,9 @@ function displayUsers() {
           <p>${user.role}</p>
         </td>
         <td class="action">
-          <a href="#"><i class='bx bxs-edit'></i></a>
+          <a href="../dashboard/edituser.html?id=${
+            user._id
+          }"><i class='bx bxs-edit'></i></a>
           <a href="#"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this User?')) { deleteUser('${
             user._id
           }', this.parentNode.parentNode) }"></i></a>
