@@ -4,7 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(authToken.username);
   currentlogin.innerHTML = `${authToken.username}`;
 });
-
+function deleteUser(id, tr) {
+  console.log("Deleting blog post with ID: " + id);
+  let authToken = JSON.parse(localStorage.getItem("authToken"));
+  fetch(`https://my-brand-api-wm4u.onrender.com/api/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${authToken.token}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      // remove table row after deleting the blog post
+      tr.remove();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 function displayUsers() {
   const blogsTable = document.querySelector("tbody");
   blogsTable.innerHTML = "";
@@ -47,7 +66,9 @@ function displayUsers() {
         </td>
         <td class="action">
           <a href="#"><i class='bx bxs-edit'></i></a>
-          <a href="#"><i class='bx bxs-trash'></i></a>
+          <a href="#"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this User?')) { deleteUser('${
+            user._id
+          }', this.parentNode.parentNode) }"></i></a>
         </td>
       `;
           blogsTable.appendChild(tr);

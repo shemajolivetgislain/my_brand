@@ -66,7 +66,7 @@ function publishedBlog() {
   const published = document.getElementById("published");
   published.innerHTML = "";
 
-  fetch("http://127.0.0.1:3000/api/blogs/published")
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/published")
     .then((response) => response.json())
     .then((blogs) => {
       const fetchBlogs = blogs.data;
@@ -86,7 +86,7 @@ function unPublishedBlog() {
   const not_Published = document.getElementById("not_Published");
   not_Published.innerHTML = "";
 
-  fetch("http://127.0.0.1:3000/api/blogs/unpublished")
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/unpublished")
     .then((response) => response.json())
     .then((blogs) => {
       const fetchBlogs = blogs.data;

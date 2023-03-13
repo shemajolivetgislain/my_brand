@@ -2,7 +2,7 @@
 function displayBox() {
   const blogContainer = document.querySelector("#post");
   blogContainer.innerHTML = "";
-  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/published")
     .then((response) => response.json())
     .then((blogs) => {
       console.log(blogs.data);
