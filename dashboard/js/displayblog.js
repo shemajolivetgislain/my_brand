@@ -26,13 +26,14 @@ function deleteArticle(id, tr) {
       console.log(err);
     });
 }
-
-// display blogs in the table
 function displayBlogs() {
   const blogsTable = document.querySelector("tbody");
   blogsTable.innerHTML = "";
 
-  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs/")
+  let authToken = JSON.parse(localStorage.getItem("authToken"));
+  let isAdmin = authToken.role === "admin";
+
+  fetch("https://my-brand-api-wm4u.onrender.com/api/blogs")
     .then((response) => response.json())
     .then((blogs) => {
       console.log(blogs.data);
@@ -64,12 +65,13 @@ function displayBlogs() {
               <p>${blog.statuse}</p>
             </td>
             <td class="action">
-              <a href="../dashboard/edit.html?id=${
-                blog._id
-              }"><i class='bx bxs-edit'></i></a>
-              <a href="#"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this blog post?')) { deleteArticle('${
-                blog._id
-              }', this.parentNode.parentNode) }"></i></a>
+              ${
+                isAdmin
+                  ? `
+              <a href="../dashboard/edit.html?id=${blog._id}" class="admin"><i class='bx bxs-edit '></i></a>
+              <a href="#" class="admin"><i class='bx bxs-trash' onclick="if (window.confirm('Are you sure you want to delete this blog post?')) { deleteArticle('${blog._id}', this.parentNode.parentNode) }"></i></a>`
+                  : ""
+              }
             </td>
           `;
           blogsTable.appendChild(tr);

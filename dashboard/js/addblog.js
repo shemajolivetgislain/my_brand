@@ -1,25 +1,6 @@
 var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dja5pnddu/upload/";
 var CLOUDINARY_UPLOAD_PRESET = "usnlxsti";
 
-// var imageUpload = document.getElementById("add_image");
-
-// imageUpload.addEventListener("change", function (event) {
-//   var file = event.target.files[0];
-//   var formData = new FormData();
-//   formData.append("file", file);
-//   formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-
-//   fetch(CLOUDINARY_URL, {
-//     method: "POST",
-//     body: formData,
-//   })
-//     .then(function (response) {
-//       console.log(response.json());
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//     });
-// });
 const form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
